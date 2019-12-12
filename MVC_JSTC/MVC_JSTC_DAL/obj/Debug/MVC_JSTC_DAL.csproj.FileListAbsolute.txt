@@ -1,0 +1,11 @@
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_DAL\bin\Debug\MVC_JSTC_DAL.dll.config
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_DAL\bin\Debug\MVC_JSTC_DAL.dll
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_DAL\bin\Debug\MVC_JSTC_DAL.pdb
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_DAL\bin\Debug\EntityFramework.dll
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_DAL\bin\Debug\EntityFramework.xml
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_DAL\obj\Debug\MVC_JSTC_DAL.csproj.CopyComplete
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_DAL\obj\Debug\MVC_JSTC_DAL.dll
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_DAL\obj\Debug\MVC_JSTC_DAL.pdb
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_DAL\obj\Debug\MVC_JSTC_DAL.csprojAssemblyReference.cache

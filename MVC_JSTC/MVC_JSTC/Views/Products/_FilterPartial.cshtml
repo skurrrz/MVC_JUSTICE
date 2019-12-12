@@ -1,0 +1,166 @@
+﻿
+<!--------------- This is the Partial Page for the Filter Sidebar for ProductsIndex ------------------->
+
+
+<div id="sidebar-container" class="sidebar-expanded">
+    <ul class="list-group">
+
+        <!-------------------- BEGIN LIST OF SIDEBAR BUTTONS ----------------->
+        <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+            <small>FILTER YOUR SEARCH</small>
+        </li>
+
+        <!-------------------- ALL PRODUCTS ----------------->
+        <!-- Returns all products from database and inserts results into search-results div in ProductsIndex -->
+        <li>
+            @using (Ajax.BeginForm("GetAllProducts", "Products", FormMethod.Post, new AjaxOptions
+            {
+                InsertionMode = InsertionMode.Replace,
+                HttpMethod = "POST",
+                UpdateTargetId = "search-results"
+            }))
+            {
+                <button class="list-group-item list-group-item-action bg-dark text-white"
+                        id="btn" name="btn" value="allProducts" type="submit">
+                    See All Products
+                </button>
+            }
+        </li>
+
+        <!----------- FURNITURE CATEGORY  ---------------->
+        <!-- Returns products of selected category+subcategory from database -->
+        <li>
+            <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fa-dashboard fa-fw mr-3"></span>
+                    <span class="menu-collapsed">Furniture</span>
+                    <span class="submenu-icon ml-auto"></span>
+                </div>
+            </a>
+            <div id='submenu1' class="collapse sidebar-submenu">
+                @using (Ajax.BeginForm("Filter", "Products", FormMethod.Post,
+                    new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.Replace,
+                        HttpMethod = "POST",
+                        UpdateTargetId = "search-results"
+                    }))
+                 {
+                    <!------------- Choice: All Furniture -------------->
+                    <button class="list-group-item list-group-item-action bg-dark text-white"
+                            name="filterBtn" type="submit" value="furniture-">
+                        All Furniture
+                    </button>
+
+                    <!------------- Choice: All Desks -------------->
+                    <button class="list-group-item list-group-item-action bg-dark text-white"
+                            name="filterBtn" type="submit" value="furniture-desk">
+                        Desks
+                    </button>
+
+                    <!------------- Choice: All Chairs -------------->
+                    <button class="list-group-item list-group-item-action bg-dark text-white"
+                            name="filterBtn" type="submit" value="furniture-chair">
+                        Chairs
+                    </button>
+
+                    <!------------- Choice: All Lamps -------------->
+                    <button class="list-group-item list-group-item-action bg-dark text-white"
+                            name="filterBtn" type="submit" value="furniture-lamp">
+                        Lamps
+                    </button>
+                 }
+            </div>
+            </li>
+
+        <!----------- ELECTRONICS CATEGORY  ---------------->
+        <!-- Returns products of selected category+subcategory from database (filterBtn.val is returned) -->
+        <li>
+            <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fa-user fa-fw mr-3"></span>
+                    <span class="menu-collapsed">Electronics</span>
+                    <span class="submenu-icon ml-auto"></span>
+                </div>
+            </a>
+
+            <div id='submenu2' class="collapse sidebar-submenu">
+                @using (Ajax.BeginForm("Filter", "Products", FormMethod.Post,
+                    new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.Replace,
+                        HttpMethod = "POST",
+                        UpdateTargetId = "search-results"
+                    }))
+                {
+                    <!-------------- Choice: All Electronics ---------------->
+                    <button class="list-group-item list-group-item-action bg-dark text-white"
+                            name="filterBtn" type="submit" value="electronic-">
+                        All Electronics
+                    </button>
+
+                    <!-------------- Choice: All Desktops ---------------->
+                    <button class="list-group-item list-group-item-action bg-dark text-white"
+                            name="filterBtn" type="submit" value="electronic-desktop">
+                        Desktops
+                    </button>
+
+                    <!-------------- Choice: All Laptops ---------------->
+                    <button class="list-group-item list-group-item-action bg-dark text-white"
+                            name="filterBtn" type="submit" value="electronic-laptop">
+                        Laptops
+                    </button>
+
+                    <!-------------- Choice: All Accessories ---------------->
+                    <button class="list-group-item list-group-item-action bg-dark text-white"
+                            name="filterBtn" type="submit" value="electronic-accessor">
+                        Accessories
+                    </button>
+                }
+            </div>
+        </li>
+
+
+        <!-------------------- COMPARISONS ----------------->
+        <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+            <small>PRODUCT COMPARISON</small>
+        </li>
+        <li>
+            @using (Ajax.BeginForm("Compare", "Products", FormMethod.Post,
+                new AjaxOptions
+                {
+                    InsertionMode = InsertionMode.Replace,
+                    HttpMethod = "POST",
+                    UpdateTargetId = "search-results"
+                }))
+            {
+                <!-------- Stores product_Id of checked products -------->
+                @Html.Hidden("choice1", 0);
+                @Html.Hidden("choice2", 0);
+                @Html.Hidden("choice3", 0);
+                <button class="list-group-item list-group-item-action bg-dark text-white"
+                        id="compareBtn" name="filterBtn" value="cbVal"
+                        type="submit">
+                    Compare Selected Items
+                </button>
+
+            }
+        </li>
+
+        <!-------------------- OPTIONS  ----------------->
+        <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+            <small>OPTIONS</small>
+        </li>
+
+        <!-------------------- LOGOUT ----------------->
+        <li>
+            <a href="@Url.Action("Logout", "Home")"
+                class="bg-dark list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fa-question fa-fw mr-3"></span>
+                    <span class="menu-collapsed">Logout</span>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>

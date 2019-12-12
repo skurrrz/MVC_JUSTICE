@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MVC_JSTC_DAL.tblProduct>
+
+<!-- This is the Partial Page for the Products Listing (ProductsIndex) -->
+
+<div class="card">
+    <h4 class="card-header">Products</h4>
+
+    <!---------- GRID OF PRODUCTS HERE --------->
+    <div class="card-body container">
+        <div class="row">
+            @{if (Model != null)
+                {
+                    foreach (var i in Model)
+                    {
+                        <!-------------- PRODUCT CONTAINER -------------->
+                        <div class="column">
+
+                            <!-------------- PRODUCT IMAGE -------------->
+                            <div class="row border">
+                                <div class="col border">
+                                    @{var source = "~/Content/images/" + @i.Product_Id + ".jpg"; }
+                                    <img id="prodImg" src="@Url.Content(source)" alt="image">
+                                </div>
+                            </div>
+
+                            <!-------------- PRODUCT NAME -------------->
+                            <div class="row border">
+                                <div class="col border">
+                                    @i.Product_Name
+                                </div>
+                            </div>
+
+                            <!-------------- MORE INFO BTN + CHECKBOX -------------->
+                            <div class="row border">
+                                <div class="col border">
+                                    @using (Ajax.BeginForm("DisplayProduct", "Products", FormMethod.Post, new AjaxOptions
+                                    {
+                                        InsertionMode = InsertionMode.Replace,
+                                        HttpMethod = "POST",
+                                        UpdateTargetId = "search-results"
+                                    }))
+                                    {
+                                        <div>
+                                            <!-- returns value of btnSeeMore to Products/DisplayProduct() -->
+                                            <button name="btnSeeMore" type="submit" value="@i.Product_Id"
+                                                    class="list-group-item list-group-item-action bg-dark text-white">
+                                                See More Information
+                                            </button>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="col border">
+                                    @Html.Label("Compare");
+                                    <input class="checkbox" type="checkbox" name="Compare" value="@i.Product_Id">
+                                </div>
+                            </div>
+                        </div>
+                    } //END FOREACH LOOP
+                }
+
+                //No results were returned to view
+                else
+                {
+                    <h3 class="text-error">No items matches search query</h3>
+                }
+            }
+        </div>
+    </div> <!-- END GRID OF PRODUCTS -->
+</div>

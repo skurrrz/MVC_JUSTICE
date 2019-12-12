@@ -1,0 +1,21 @@
+﻿
+
+#user{
+    height: 5%;
+    width: 5%;
+    border-radius: 50%;
+}
+
+#prodImg {
+    height: auto;
+    width: 70%;
+    min-width: 50px;
+}
+
+
+#singleProdImg {
+    height: auto;
+    width: 70%;
+    max-width: 250px;
+    min-width: 50px;
+}

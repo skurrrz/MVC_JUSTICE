@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Joole - Products";
+}
+
+<!------------- THIS IS THE LANDING PAGE FOR PRODUCTS/PRODUCTSINDEX() -------------->
+    <body>
+        <!-------- Renders Partial View: Navbar for Search -------->
+        <div id="search-form">
+            @Html.Action("Search", "Products")
+        </div>
+
+        <!-------- Renders Partial View: Sidebar for Filters -------->
+        <div class="row" id="body-row">
+            <div id="filter-form">
+                @Html.Action("Filter", "Products")
+            </div>
+
+            <!-------- Renders Partial View: Product Listings (passed in via AJAX) -------->
+            <div class="col">
+                <div id="search-results">
+                </div>
+            </div>
+        </div>
+    </body>

@@ -1,0 +1,22 @@
+﻿@model MVC_JSTC.Models.AuthenticationModel
+
+<!-- These are all of the possible errors that can happen from logging in-->
+<!-- These errors are inserted via AJAX into Home/Index into the login container -->
+
+@if (@Html.ValidationMessageFor(model => model.Register.Email) != null)
+    {@Html.ValidationMessageFor(model => model.Register.Email)}
+
+@if (@Html.ValidationMessageFor(model => model.Register.UserName) != null)
+    {@Html.ValidationMessageFor(model => model.Register.UserName)}
+
+@if (@Html.ValidationMessageFor(model => model.Register.Password) != null)
+    {@Html.ValidationMessageFor(model => model.Register.Password)}
+
+@if (@Html.ValidationMessageFor(model => model.Register.Password_Comp) != null)
+    {@Html.ValidationMessageFor(model => model.Register.Password_Comp)}
+
+@if (@Html.ValidationMessage("RegUserError") != null)
+    {@Html.ValidationMessage("RegUserError")}
+
+@if (@Html.ValidationMessage("RegEmailError") != null)
+    {@Html.ValidationMessage("RegEmailError")}

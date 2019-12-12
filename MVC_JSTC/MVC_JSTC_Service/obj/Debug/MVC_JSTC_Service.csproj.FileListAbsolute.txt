@@ -1,0 +1,17 @@
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_Service\obj\Debug\MVC_JSTC_Service.csprojAssemblyReference.cache
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_Service\bin\Debug\MVC_JSTC_Service.dll.config
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_Service\bin\Debug\MVC_JSTC_Service.dll
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_Service\bin\Debug\MVC_JSTC_Service.pdb
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_Service\bin\Debug\EntityFramework.dll
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_Service\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_Service\bin\Debug\MVC_JSTC_DAL.dll
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_Service\bin\Debug\MVC_JSTC_Repository.dll
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_Service\bin\Debug\MVC_JSTC_DAL.pdb
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_Service\bin\Debug\MVC_JSTC_DAL.dll.config
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_Service\bin\Debug\MVC_JSTC_Repository.pdb
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_Service\bin\Debug\MVC_JSTC_Repository.dll.config
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_Service\bin\Debug\EntityFramework.xml
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_Service\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_Service\obj\Debug\MVC_JSTC_Service.csproj.CopyComplete
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_Service\obj\Debug\MVC_JSTC_Service.dll
+C:\Users\shelb\source\repos\MVC_JSTC\MVC_JSTC_Service\obj\Debug\MVC_JSTC_Service.pdb

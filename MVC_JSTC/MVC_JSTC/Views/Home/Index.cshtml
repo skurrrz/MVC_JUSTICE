@@ -1,0 +1,102 @@
+﻿@model MVC_JSTC.Models.AuthenticationModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Joole - Login";
+}
+
+<!------------- THIS IS THE DEFAULT LANDING PAGE HOME/INDEX() -------------->
+<!-------- This page justs the JS functions in joole.js to be dynamic -------->
+    <body>
+
+        <!-------------- This is the background panel - CHANGE BANNER IMAGE HERE -------------->
+        <div class="login-reg-panel" style="background: url(../../Content/images/joole-banner.jpg);">
+
+            <!-------- This can only be seen when the user is on the "Register" panel -------->
+            <div class="login-info-box">
+                <h2>Have an account?</h2>
+                <p></p>
+                <label id="label-register" for="log-reg-show">Login</label>
+                <input type="radio" name="active-log-panel" id="log-reg-show" checked="checked">
+            </div>
+
+            <!-------- This can only be seen when the user is on the "Login" panel -------->
+            <div class="register-info-box">
+                <h2>Don't have an account?</h2>
+                <p></p>
+                <label id="label-login" for="log-login-show">Register</label>
+                <input type="radio" name="active-log-panel" id="log-login-show">
+            </div>
+
+            <!-------- This is the container for the "Login" and "Register" panels-------->
+            <!-- TODO: Make label and inputbox shrink to make room for error messages -->
+            <div class="white-panel">
+                <!--------------- This is the "Login" panel --------------------->
+                <!-------- Sends model information to Home/Login(model)-------->
+                <div class="login-show">
+                    <h2>LOGIN</h2>
+                    @using (Ajax.BeginForm("Login", "Home", FormMethod.Post, new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.Replace,
+                        HttpMethod = "POST",
+                        UpdateTargetId = "login-validation-results"
+                    }))
+                    {
+                        <div>
+                            @Html.LabelFor(m => m.Login.UserName)<br />
+                            @Html.EditorFor(model => model.Login.UserName,
+                                new { @class = ".form-input " })<br />
+                            <p></p>
+                            @Html.LabelFor(m => m.Login.Password)<br />
+                            @Html.EditorFor(model => model.Login.Password,
+                                new { @class = ".form-input " })<br />
+                            <p></p><p></p>
+                            <input type="submit" value="Login">
+
+                            <!-- AJAX - add error message here -->
+                            <p></p><p></p>
+                            <div id="login-validation-results">
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <!--------------- This is the "Register" panel --------------------->
+                <!-------- Sends model information to Home/Register(model)-------->
+                <div class="register-show">
+                    <h2>REGISTER</h2>
+                    @using (Ajax.BeginForm("Register", "Home", FormMethod.Post, new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.Replace,
+                        HttpMethod = "POST",
+                        UpdateTargetId = "reg-validation-results"
+                    }))
+                    {
+                        <div>
+                            @Html.LabelFor(m => m.Register.Email)<br />
+                            @Html.EditorFor(model => model.Register.Email,
+                                new { @class = ".form-input " })<br />
+                            <p></p>
+                            @Html.LabelFor(m => m.Register.UserName)<br />
+                            @Html.EditorFor(model => model.Register.UserName,
+                                new { @class = ".form-input " })
+                            <p></p>
+                            @Html.LabelFor(m => m.Register.Password)<br />
+                            @Html.EditorFor(model => model.Register.Password,
+                                new { @class = ".form-input " })<br />
+                            <p></p>
+                            @Html.LabelFor(m => m.Register.Password_Comp)<br />
+                            @Html.EditorFor(model => model.Register.Password_Comp,
+                                new { @class = ".form-input " })<br />
+                            <p></p><p></p>
+                            <input type="submit" value="Login">
+
+                            <!-- AJAX - add error message here -->
+                            <p></p><p></p>
+                            <div id="reg-validation-results">
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </body>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dd8cd5f1980e4fb3b33009689eb8bc89" Name="Diagram1">
+        <EntityTypeShape EntityType="JusticeModel.sysdiagram" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JusticeModel.tblDocument" Width="1.5" PointX="8" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JusticeModel.tblManufacturer" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JusticeModel.tblOrder" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JusticeModel.tblProduct" Width="1.5" PointX="5.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="JusticeModel.tblProperty" Width="1.5" PointX="5.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JusticeModel.tblPropertyValue" Width="1.5" PointX="8" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JusticeModel.tblUser" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="JusticeModel.fk_Document" ManuallyRouted="false" />
+        <AssociationConnector Association="JusticeModel.fk_Manufactures" ManuallyRouted="false" />
+        <AssociationConnector Association="JusticeModel.fk_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="JusticeModel.fk_ProVal_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="JusticeModel.fk_ProVal_Property" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

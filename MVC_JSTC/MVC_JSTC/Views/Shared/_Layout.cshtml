@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <!------------- HEADER IMAGE (bootsnipp .navbar-brand) ------------>
+    <div class="navbar-brand d-flex justify-content-center">
+        <a href="@Url.Action("Index", "Home")">
+           <img class="navbar-icon" src="~/Content/images/joole-logo.png" />
+        </a>
+    </div>
+
+    <div>
+        <!------------- CONTENTS OF PAGE ------------>
+        @RenderBody()
+
+        <!------------- FOOTER IMAGE ------------>
+        <footer>
+            <img src="~/Content/images/joole-footer.jpg" class="header-image" />
+        </footer>
+    </div>
+</body>
+
+<!------------- JQUERY AND BOOTSTRAP BUNDLES ------------>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+</html>

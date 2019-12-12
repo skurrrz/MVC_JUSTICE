@@ -1,0 +1,16 @@
+﻿@model MVC_JSTC.Models.AuthenticationModel
+
+<!-- These are all of the possible errors that can happen from logging in-->
+<!-- These errors are inserted via AJAX into Home/Index into the login container -->
+
+@if (@Html.ValidationMessageFor(model => model.Login.UserName) != null)
+    {@Html.ValidationMessageFor(model => model.Login.UserName)}
+
+@if (@Html.ValidationMessageFor(model => model.Login.Password) != null)
+    {@Html.ValidationMessageFor(model => model.Login.Password)}
+
+@if (@Html.ValidationMessage("LoginUserError") != null)
+    {@Html.ValidationMessage("LoginUserError")}
+
+@if (@Html.ValidationMessage("LoginPasswordError") != null)
+    {@Html.ValidationMessage("LoginPasswordError")}

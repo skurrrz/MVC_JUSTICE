@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JusticeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tblDocument">
+    <Key>
+      <PropertyRef Name="Document_Id" />
+    </Key>
+    <Property Name="Document_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Document_Folder_Path" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Product_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblProduct" Relationship="Self.fk_Document" FromRole="tblDocuments" ToRole="tblProducts" />
+  </EntityType>
+  <EntityType Name="tblManufacturer">
+    <Key>
+      <PropertyRef Name="Manuf_Id" />
+    </Key>
+    <Property Name="Manuf_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Manuf_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Manuf_Web" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="User_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblUser" Relationship="Self.fk_Manufactures" FromRole="tblManufacturers" ToRole="tblUsers" />
+  </EntityType>
+  <EntityType Name="tblOrder">
+    <Key>
+      <PropertyRef Name="Order_Id" />
+    </Key>
+    <Property Name="Order_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Order_GroupNumber" Type="Int32" Nullable="false" />
+    <Property Name="Order_Address1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Order_Address2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="order_City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Order_State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Order_Quantity" Type="Int32" Nullable="false" />
+    <Property Name="User_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblUser" Relationship="Self.fk_Orders" FromRole="tblOrders" ToRole="tblUsers" />
+  </EntityType>
+  <EntityType Name="tblProduct">
+    <Key>
+      <PropertyRef Name="Product_Id" />
+    </Key>
+    <Property Name="Product_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Product_Image" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Product_Series" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Product_Model" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Product_Model_Year" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Product_Series_Info" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Product_Featured" Type="Boolean" />
+    <Property Name="SubCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Manufacturer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblDocuments" Relationship="Self.fk_Document" FromRole="tblProducts" ToRole="tblDocuments" />
+    <NavigationProperty Name="tblPropertyValues" Relationship="Self.fk_ProVal_Product" FromRole="tblProducts" ToRole="tblPropertyValues" />
+  </EntityType>
+  <EntityType Name="tblProperty">
+    <Key>
+      <PropertyRef Name="Property_Id" />
+    </Key>
+    <Property Name="Property_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Property_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Property_isType" Type="Boolean" />
+    <Property Name="Property_isTechSpec" Type="Boolean" />
+    <NavigationProperty Name="tblPropertyValues" Relationship="Self.fk_ProVal_Property" FromRole="tblProperties" ToRole="tblPropertyValues" />
+  </EntityType>
+  <EntityType Name="tblPropertyValue">
+    <Key>
+      <PropertyRef Name="Property_Id" />
+      <PropertyRef Name="Product_Id" />
+    </Key>
+    <Property Name="Property_Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Property_Id" Type="Int32" Nullable="false" />
+    <Property Name="Product_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblProduct" Relationship="Self.fk_ProVal_Product" FromRole="tblPropertyValues" ToRole="tblProducts" />
+    <NavigationProperty Name="tblProperty" Relationship="Self.fk_ProVal_Property" FromRole="tblPropertyValues" ToRole="tblProperties" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_UserType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="User_Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="User_Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="User_Image" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="User_Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tblManufacturers" Relationship="Self.fk_Manufactures" FromRole="tblUsers" ToRole="tblManufacturers" />
+    <NavigationProperty Name="tblOrders" Relationship="Self.fk_Orders" FromRole="tblUsers" ToRole="tblOrders" />
+  </EntityType>
+  <Association Name="fk_Document">
+    <End Role="tblProducts" Type="Self.tblProduct" Multiplicity="1" />
+    <End Role="tblDocuments" Type="Self.tblDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProducts">
+        <PropertyRef Name="Product_Id" />
+      </Principal>
+      <Dependent Role="tblDocuments">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Manufactures">
+    <End Role="tblUsers" Type="Self.tblUser" Multiplicity="1" />
+    <End Role="tblManufacturers" Type="Self.tblManufacturer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUsers">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="tblManufacturers">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Orders">
+    <End Role="tblUsers" Type="Self.tblUser" Multiplicity="1" />
+    <End Role="tblOrders" Type="Self.tblOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUsers">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="tblOrders">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ProVal_Product">
+    <End Role="tblProducts" Type="Self.tblProduct" Multiplicity="1" />
+    <End Role="tblPropertyValues" Type="Self.tblPropertyValue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProducts">
+        <PropertyRef Name="Product_Id" />
+      </Principal>
+      <Dependent Role="tblPropertyValues">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ProVal_Property">
+    <End Role="tblProperties" Type="Self.tblProperty" Multiplicity="1" />
+    <End Role="tblPropertyValues" Type="Self.tblPropertyValue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProperties">
+        <PropertyRef Name="Property_Id" />
+      </Principal>
+      <Dependent Role="tblPropertyValues">
+        <PropertyRef Name="Property_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JusticeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tblDocuments" EntityType="Self.tblDocument" />
+    <EntitySet Name="tblManufacturers" EntityType="Self.tblManufacturer" />
+    <EntitySet Name="tblOrders" EntityType="Self.tblOrder" />
+    <EntitySet Name="tblProducts" EntityType="Self.tblProduct" />
+    <EntitySet Name="tblProperties" EntityType="Self.tblProperty" />
+    <EntitySet Name="tblPropertyValues" EntityType="Self.tblPropertyValue" />
+    <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+    <AssociationSet Name="fk_Document" Association="Self.fk_Document">
+      <End Role="tblProducts" EntitySet="tblProducts" />
+      <End Role="tblDocuments" EntitySet="tblDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Manufactures" Association="Self.fk_Manufactures">
+      <End Role="tblUsers" EntitySet="tblUsers" />
+      <End Role="tblManufacturers" EntitySet="tblManufacturers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Orders" Association="Self.fk_Orders">
+      <End Role="tblUsers" EntitySet="tblUsers" />
+      <End Role="tblOrders" EntitySet="tblOrders" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ProVal_Product" Association="Self.fk_ProVal_Product">
+      <End Role="tblProducts" EntitySet="tblProducts" />
+      <End Role="tblPropertyValues" EntitySet="tblPropertyValues" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ProVal_Property" Association="Self.fk_ProVal_Property">
+      <End Role="tblProperties" EntitySet="tblProperties" />
+      <End Role="tblPropertyValues" EntitySet="tblPropertyValues" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

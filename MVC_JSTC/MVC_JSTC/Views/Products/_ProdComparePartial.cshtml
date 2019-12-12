@@ -1,0 +1,114 @@
+﻿@model IEnumerable<MVC_JSTC_DAL.tblProduct>
+
+<!-- This is the Partial Page for Products Comparison (ProductsIndex) -->
+
+<div class="card">
+    <h4 class="card-header">Products</h4>
+
+    <!--------------- List of products here ------------>
+    <div class="card-body container">
+        <div class="container">
+            @if (Model != null)
+            {
+                <!------------ Image Row ------------>
+                <div class="row border">
+                    <div class="col border">
+                        Image:
+                    </div>
+                    @foreach (var i in Model)
+                    {
+                        <div class="col border">
+                            @{var source = "~/Content/images/" + @i.Product_Id + ".jpg"; }
+                            <img id="singleProdImg" src="@Url.Content(source)" alt="image">
+                        </div>
+                    }
+                </div>
+
+                <!------------ Name Row ------------>
+                <div class="row border">
+                    <div class="col border">
+                        @Html.DisplayNameFor(model => model.Product_Name)
+                    </div>
+                    @foreach (var i in Model)
+                    {
+                        <div class="col">
+                            @i.Product_Name
+                        </div>
+                    }
+                </div>
+
+                <!------------ Model Row ------------>
+                <div class="row border">
+                    <div class="col border">
+                        @Html.DisplayNameFor(model => model.Product_Model)
+                    </div>
+                    @foreach (var i in Model)
+                    {
+                        <div class="col">
+                            @i.Product_Model
+                        </div>
+                    }
+                </div>
+
+                <!------------ Product Model Year Row ------------>
+                <div class="row border">
+                    <div class="col border">
+                        @Html.DisplayNameFor(model => model.Product_Model_Year)
+                    </div>
+                    @foreach (var i in Model)
+                    {
+                        <div class="col">
+                            @i.Product_Model_Year
+                        </div>
+                    }
+                </div>
+
+                <!------------ Product Serial Row ------------>
+                <div class="row border">
+                    <div class="col border">
+                        @Html.DisplayNameFor(model => model.Product_Series)
+                    </div>
+                    @foreach (var i in Model)
+                    {
+                        <div class="col">
+                            @i.Product_Series
+                        </div>
+                    }
+                </div>
+
+                <!------------ Product Series Info Row ------------>
+                <div class="row border">
+                    <div class="col border">
+                        @Html.DisplayNameFor(model => model.Product_Series_Info)
+                    </div>
+                    @foreach (var i in Model)
+                    {
+                        <div class="col">
+                            @i.Product_Series_Info
+                        </div>
+                    }
+                </div>
+
+                <!------------ Manufacturer Row ------------>
+                <div class="row border">
+                    <div class="col border">
+                        @Html.DisplayNameFor(model => model.Manufacturer)
+                    </div>
+                    @foreach (var i in Model)
+                    {
+                        <div class="col">
+                            @i.Manufacturer
+                        </div>
+                    }
+                </div>
+            }
+
+            else
+            {
+                <h3 class="text-error">No items were selected</h3>}
+            }
+
+        </div>
+    </div>
+</div>
+
